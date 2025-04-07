@@ -26,6 +26,9 @@ Das bestehende Projekt soll so erweitert werden, dass vorhandene Lieferungs-Obje
 
 ## Arbeitsauftrag
 - Informieren Sie sich über den allgmeinen Aufbau von json-Dateien.
+JSON ist ein Datenformat, welches zur Übertragung von Daten zwischen Systemen erstellt wurde.  
+Es verwendet eine hierarschische **Schlüssel-Wert-Struktur**.
+Der Schlüssel muss immer mit Anführungszeichen geschrieben werden und wird mit einem Doppelpunkt getrennt.
 - Fassen Sie Ihre Erkenntnisse in einem kurzen "Spickzettel" zusammen.
 - Erweitern Sie Ihr Programm so, dass eine JSON-Datei nach obigem Vorbild erstellt wird.
 - Nutzen Sie, nach Möglichkeit, keine fertige Bibliothek.
