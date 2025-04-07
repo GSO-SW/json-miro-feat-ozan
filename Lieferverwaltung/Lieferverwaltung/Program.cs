@@ -6,7 +6,35 @@
         static void Main(string[] args)
         {
             BeispielobjekteAnlegen();
-            Console.WriteLine(lieferungen.Count);
+
+            StreamWriter sw = new StreamWriter("C:\\Users\\Miro\\Documents\\json-miro-feat-ozan\\Lieferverwaltung\\lieferungen.json");
+            sw.Write("{\n");
+            sw.Write($"\t\"anzahl\": {lieferungen.Count}");
+            sw.Write(",\n");
+            sw.Write("\t\"lieferungen\":\n");
+            sw.Write("\t[\n");
+
+            for(int i = 0; i < lieferungen.Count; i++)
+            {
+                Lieferung curLieferung = lieferungen[i];
+                
+                sw.Write("\t\t{\n");
+                sw.Write($"\t\t\t\t\"datum\": \"{curLieferung.Datum}\",\n");
+                sw.Write($"\t\t\t\t\"sendungsnummer\": \"{curLieferung.Sendungsnummer}\",\n");
+                sw.Write($"\t\t\t\t\"plz\": {Convert.ToInt32(curLieferung.PLZ)}\n");
+                sw.Write("\t\t}");
+
+                if(i != lieferungen.Count - 1)
+                sw.Write(",\n");
+                else
+                {
+                    sw.Write("\n");
+                }
+            }
+
+            sw.Write("\t]\n");
+            sw.Write("}");
+            sw.Close();
         }
 
         static void BeispielobjekteAnlegen()
