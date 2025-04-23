@@ -1,4 +1,6 @@
-﻿namespace Lieferverwaltung
+﻿using System.Globalization;
+
+namespace Lieferverwaltung
 {
     class Program
     {
@@ -7,34 +9,37 @@
         {
             BeispielobjekteAnlegen();
 
-            StreamWriter sw = new StreamWriter("C:\\Users\\Miro\\Documents\\json-miro-feat-ozan\\Lieferverwaltung\\lieferungen.json");
-            sw.Write("{\n");
-            sw.Write($"\t\"anzahl\": {lieferungen.Count}");
-            sw.Write(",\n");
-            sw.Write("\t\"lieferungen\":\n");
-            sw.Write("\t[\n");
+	    StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + "\\lieferungen.json");
 
-            for(int i = 0; i < lieferungen.Count; i++)
+	    sw.WriteLine('{');
+
+	    sw.WriteLine($"\t\"anzahl\": {lieferungen.Count},");
+	    sw.WriteLine("\t\"lieferungen\":");
+	    sw.WriteLine("\t[");
+
+	    for(int i = 0; i < lieferungen.Count; i++)
             {
-                Lieferung curLieferung = lieferungen[i];
-                
-                sw.Write("\t\t{\n");
-                sw.Write($"\t\t\t\t\"datum\": \"{curLieferung.Datum}\",\n");
-                sw.Write($"\t\t\t\t\"sendungsnummer\": \"{curLieferung.Sendungsnummer}\",\n");
-                sw.Write($"\t\t\t\t\"plz\": {Convert.ToInt32(curLieferung.PLZ)}\n");
-                sw.Write("\t\t}");
+		    sw.WriteLine("\t\t{");
 
-                if(i != lieferungen.Count - 1)
-                sw.Write(",\n");
-                else
-                {
-                    sw.Write("\n");
-                }
-            }
 
-            sw.Write("\t]\n");
-            sw.Write("}");
-            sw.Close();
+		    sw.WriteLine($"\t\t\t\"datum\": \"{lieferungen[i].Datum.ToString("yyyy-MM-d", CultureInfo.InvariantCulture)}\",");
+		    sw.WriteLine($"\t\t\t\"sendungsnummer\": \"{lieferungen[i].Sendungsnummer}\",");
+		    sw.WriteLine($"\t\t\t\"plz\": {Convert.ToInt32(lieferungen[i].PLZ)}");
+		    if(i == lieferungen.Count - 1)
+                    {
+		    	sw.WriteLine("\t\t}");
+                    }
+		    else
+                    {
+		    	sw.WriteLine("\t\t},");
+                    }
+	    }
+
+	    sw.WriteLine("\t]");
+	    sw.Write('}');
+
+	    sw.Flush();
+	    sw.Close();
         }
 
         static void BeispielobjekteAnlegen()
