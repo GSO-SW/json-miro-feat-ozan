@@ -1,0 +1,21 @@
+{
+	"anzahl": 3,
+	"lieferungen":
+	[
+		{
+			"datum": "2024-06-22",
+			"sendungsnummer": "HHX05NNW0ZP",
+			"plz": 86309
+		},
+		{
+			"datum": "2024-09-4",
+			"sendungsnummer": "GSV18EDC4BR",
+			"plz": 91139
+		},
+		{
+			"datum": "2023-04-8",
+			"sendungsnummer": "CQX55KMY5RW",
+			"plz": 7708
+		}
+	]
+}

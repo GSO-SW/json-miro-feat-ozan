@@ -8,6 +8,11 @@ namespace Lieferverwaltung
         static void Main(string[] args)
         {
             BeispielobjekteAnlegen();
+	    ErstelleJSON();
+        }
+
+	static void ErstelleJSON()
+	{
 
 	    StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + "\\lieferungen.json");
 
@@ -40,7 +45,7 @@ namespace Lieferverwaltung
 
 	    sw.Flush();
 	    sw.Close();
-        }
+	}
 
         static void BeispielobjekteAnlegen()
         {
