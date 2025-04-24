@@ -5,7 +5,7 @@ namespace Lieferverwaltung
         private DateOnly datum;
         private string sendungsnummer;
         private string plz;
-
+	
         public Lieferung(DateOnly datum, string sendungsnummer, string plz)
         {
             this.datum = datum;
